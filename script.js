@@ -37,3 +37,27 @@ document.getElementById('nextButton').addEventListener('click', () => {
 
 // Initialize visibility on page load
 updatePageVisibility();
+
+function adjustButtonPosition() {
+    const controls = document.querySelector('.controls');
+    const book = document.querySelector('.book');
+    const isMobile = window.innerWidth <= 768;
+
+    if (isMobile) {
+        // Move buttons to the bottom of the sticky note
+        controls.style.position = 'absolute';
+        controls.style.bottom = '-50px'; // Adjust as needed
+        controls.style.left = '80%';
+        controls.style.transform = 'translateX(-50%)';
+    } else {
+        // Reset buttons to their original position
+        controls.style.position = 'relative';
+        controls.style.bottom = 'auto';
+        controls.style.left = 'auto';
+        controls.style.transform = 'none';
+    }
+}
+
+// Adjust button position on page load and window resize
+window.addEventListener('load', adjustButtonPosition);
+window.addEventListener('resize', adjustButtonPosition);

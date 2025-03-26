@@ -18,6 +18,7 @@ body {
     width: 600px;
     height: 400px;
     perspective: 1000px;
+    margin-bottom: 60px; /* Add space below the book to ensure buttons are not overlapping */
 }
 
 .page {
@@ -103,9 +104,12 @@ body {
 }
 
 .controls {
-    margin-top: 10px; /* Add space between the book and the buttons */
+    margin-top: 20px; /* Add space between the sticky note and the buttons */
     display: flex;
     gap: 10px;
+    justify-content: center; /* Center the buttons horizontally */
+    position: relative; /* Ensure proper positioning */
+    z-index: 1; /* Ensure buttons are above the background but below the sticky note */
 }
 
 button {
@@ -149,12 +153,16 @@ button#nextButton::before {
     .book {
         width: 90%; /* Adjust the book width to fit smaller screens */
         height: auto; /* Allow the height to adjust dynamically */
+        margin-bottom: 80px; /* Add more space below the book for smaller screens */
     }
 
     .page {
         width: 100%; /* Ensure the page takes the full width of the book */
         height: auto; /* Allow the height to adjust dynamically */
         padding: 15px; /* Reduce padding for smaller screens */
+        box-sizing: border-box; /* Ensure padding is included in dimensions */
+        min-width: 300px; /* Set a minimum width for the sticky note */
+        min-height: 400px; /* Set a minimum height for the sticky note */
     }
 
     .content {
@@ -168,12 +176,27 @@ button#nextButton::before {
     }
 
     .controls {
-        margin-top: 20px; /* Add more space between the book and the buttons */
-        gap: 5px; /* Reduce the gap between buttons */
+        margin-top: 30px; /* Add more space for smaller screens */
+        gap: 5px; /* Reduce the gap between buttons for smaller screens */
+        justify-content: center; /* Ensure buttons remain centered */
+        position: relative; /* Ensure proper positioning */
+        top: auto; /* Reset any top positioning */
     }
 
     button {
         padding: 8px 15px; /* Adjust button size */
         font-size: 14px; /* Reduce button font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .page {
+        padding: 10px; /* Further reduce padding for very small screens */
+        min-width: 250px; /* Further reduce minimum width for very small screens */
+        min-height: 350px; /* Further reduce minimum height for very small screens */
+    }
+
+    .content {
+        font-size: 12px; /* Further reduce font size for very small screens */
     }
 }
