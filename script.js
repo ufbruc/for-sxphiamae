@@ -46,7 +46,7 @@ function adjustButtonPosition() {
     if (isMobile) {
         // Move buttons to the bottom of the sticky note
         controls.style.position = 'absolute';
-        controls.style.bottom = '-50px'; // Adjust as needed
+        controls.style.bottom = '400px'; // Adjust as needed
         controls.style.left = '80%';
         controls.style.transform = 'translateX(-50%)';
     } else {
